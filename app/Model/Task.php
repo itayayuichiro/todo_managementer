@@ -3,6 +3,20 @@
 App::uses('AppModel', 'Model');
 
 class Task extends AppModel {
+	public $validate = array(
+		'title' => array(
+			'rule' => 'isUnique',
+            'message' => 'その名前のタスクはすでにあります。',
+            'required' => 'create'
+		),
+		'limit_at' => array(
+			'rule' => 'date',
+	        'message' => '正しい値を入れてください',
+	        'allowEmpty' => true
+		)
+	);
+
+
 	public function getAllTask(){
 		return $this->find('all');
 	}
