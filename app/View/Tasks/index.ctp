@@ -43,7 +43,17 @@
 					<input type="submit" name="" value="編集" class="btn btn-success">
 				</form>
 				<form action="./tasks/finish" class="finish_btn" method="post" accept-charset="utf-8">
-					<input type="submit" name="" value="未完了" class="btn btn-info">
+				<?php
+				if ($row['Task']['is_finished']==1) {
+				?>
+					<input type="submit" name="" value="完了" class="btn btn-info">
+				<?php
+				}else{
+				?>
+					<input type="submit" name="" value="未完了" class="btn btn-danger">
+				<?php
+				}
+				?>
 				</form>
 			</div>
 			</p>
