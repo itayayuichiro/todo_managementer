@@ -18,7 +18,7 @@ class Task extends AppModel {
 
 
 	public function getAllTask(){
-		return $this->find('all');
+		return $this->find('all',array('order'=> array('created DESC')));
 	}
 	public function saveTask($title,$date){
 		$this->save(['title'=>$title,'limit_at'=>$date]);
