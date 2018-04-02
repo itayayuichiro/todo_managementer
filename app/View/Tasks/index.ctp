@@ -43,6 +43,7 @@
 					<input type="submit" name="" value="編集" class="btn btn-success">
 				</form>
 				<form action="./tasks/finish" class="finish_btn" method="post" accept-charset="utf-8">
+					<input type="hidden" name="id" value="<?php echo $row['Task']['id'] ?>">
 				<?php
 				if ($row['Task']['is_finished']==1) {
 				?>
