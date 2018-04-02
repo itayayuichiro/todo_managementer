@@ -1,63 +1,89 @@
 <?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Bootstrap core CSS -->
+	<?php echo $this->Html->css('bootstrap.min.css'); ?>
+	<!-- Custom styles for this template -->
+	<?php echo $this->Html->css('round-about.css'); ?>
+	<?php echo $this->Html->css('round-about.css'); ?>
+	<?php echo $this->Html->script('jquery.min.js'); ?>
+	<?php echo $this->Html->script('popper.min.js'); ?>
+	<?php echo $this->Html->script('bootstrap.min.js'); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
+		TODOリスト:
 		<?php echo $this->fetch('title'); ?>
 	</title>
-	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
-
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+	<!--header_parts-->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	  <div class="container">
+	    <a class="navbar-brand" href="/youtuber_collection">TODOリスト</a>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarResponsive">
+	      <ul class="navbar-nav ml-auto">
+	        <li class="nav-item active">
+	      		<form action="/youtuber_collection/youtubers/search" method="get" accept-charset="utf-8">
+							<input type="text" name="name" value="">								      			
+	      		</form>
+	        </li>
+	        <li class="nav-item active">
+	          <a class="nav-link" href="/youtuber_collection/youtubers/about">検索</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
 
-			<?php echo $this->Flash->render(); ?>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'https://cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
-		</div>
+	  ga('create', 'UA-105760530-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+	<script type="text/javascript">
+	    window._pt_lt = new Date().getTime();
+	    window._pt_sp_2 = [];
+	    _pt_sp_2.push('setAccount,4190bd84');
+	    var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	    (function() {
+	        var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+	        atag.src = _protocol + 'js.ptengine.jp/pta.js';
+	        var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+	        stag.src = _protocol + 'js.ptengine.jp/pts.js';
+	        var s = document.getElementsByTagName('script')[0];
+	        s.parentNode.insertBefore(atag, s); s.parentNode.insertBefore(stag, s);
+	    })();
+	</script>
+	<!--header_parts-->
+
+	                        
+	<div class="container">
+		<?php 
+		echo $this->fetch('content');
+		 ?>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 </body>
 </html>

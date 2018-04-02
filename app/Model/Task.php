@@ -3,7 +3,13 @@
 App::uses('AppModel', 'Model');
 
 class Task extends AppModel {
-	public $name = 'Youtuber';
+	public function getAllTask(){
+		return $this->find('all');
+	}
+	public function saveTask($title,$date){
+		$this->save(['title'=>$title,'limit_at'=>$date]);
+	}
+
 	public function getAllYoutuber(){
 		$this->Youtuber= new Youtuber();
 		return $this->Youtuber->find('all',['limit' => 21]);
