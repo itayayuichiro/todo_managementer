@@ -22,8 +22,7 @@ class TasksController extends AppController {
 	}
 
 	public function finish(){
-		echo "baka";
-		if($this->Task->getFinished($this->request->data['id'])['Task']['is_finished'] == 1){
+		if($this->Task->getRecord($this->request->data['id'])['Task']['is_finished'] == 1){
 			$this->Task->changeFinished($this->request->data['id'],0);
 		}else{
 			$this->Task->changeFinished($this->request->data['id'],1);
@@ -31,4 +30,12 @@ class TasksController extends AppController {
 		$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
 	}
 
+	public function edit(){
+		$this->set('task',$this->Task->getRecord($_GET['id'])['Task']);
+	}
+
+	public function update(){
+		$this->Task->updateTask($this->request->data['id'],$this->request->data['title'],$this->request->data['limit_date']);
+		$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+	}
 }

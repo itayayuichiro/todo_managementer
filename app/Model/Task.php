@@ -23,12 +23,16 @@ class Task extends AppModel {
 	public function saveTask($title,$date){
 		$this->save(['title'=>$title,'limit_at'=>$date]);
 	}
+	public function updateTask($id,$title,$value){
+		$this->id = $id;
+		$this->save(['title'=>$title,'value'=>$value]);
+	}
+
 	public function changeFinished($id,$value){
 		$this->id = $id;
 		$this->save(['is_finished'=>$value]);
-		// $this->save(['title'=>$title,'limit_at'=>$date]);
 	}
-	public function getFinished($id){
+	public function getRecord($id){
 		return $this->find('first', array('conditions' => array('id' => $id)));
 	}
 
