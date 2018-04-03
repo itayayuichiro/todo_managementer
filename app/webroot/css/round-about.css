@@ -50,3 +50,7 @@ body {
 .finish_btn{
 	float: right;
 }
+.hit_message{
+	color: red;
+	margin: 30px;
+}

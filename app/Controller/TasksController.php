@@ -38,4 +38,10 @@ class TasksController extends AppController {
 		$this->Task->updateTask($this->request->data['id'],$this->request->data['title'],$this->request->data['limit_date']);
 		$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
 	}
+
+	public function search(){
+        $this->set('search_task', $this->Task->getSearchTask($_GET['keyword']));
+        // $this->set('search_task', $this->Task->getSearchTask());
+	}
+
 }

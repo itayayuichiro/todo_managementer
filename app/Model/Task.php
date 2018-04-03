@@ -27,6 +27,10 @@ class Task extends AppModel {
 		$this->id = $id;
 		$this->save(['title'=>$title,'value'=>$value]);
 	}
+	public function getSearchTask($keyword){
+		return $this->find('all',array('conditions' => array('title LIKE' => '%'. $keyword. '%','is_finished' => 0)));
+	}
+
 
 	public function changeFinished($id,$value){
 		$this->id = $id;
