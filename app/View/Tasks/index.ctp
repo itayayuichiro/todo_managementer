@@ -31,6 +31,14 @@
 </div>
 
 <?php
+	if(count($all_task)==0){
+?>
+		<span class="hit_message">登録されたToDoはございません</span>
+<?php
+	}
+?>
+
+<?php
 	foreach ($all_task as $row) {
 		?>
 	<div class="todo_box">
