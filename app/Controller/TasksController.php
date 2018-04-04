@@ -4,6 +4,8 @@
 App::uses('AppController', 'Controller');
 
 class TasksController extends AppController {
+	public $helpers = array('Format');
+
 	public function index(){
         $this->set('all_task', $this->Task->getAllTask());
 	}
