@@ -5,9 +5,15 @@ App::uses('AppModel', 'Model');
 class Task extends AppModel {
 	public $validate = array(
 		'title' => array(
-			'rule' => 'isUnique',
-            'message' => 'その名前のタスクはすでにあります。',
-            'required' => 'create'
+			array(
+				'rule' => 'isUnique',
+	            'message' => 'その名前のタスクはすでにあります。',
+	            'required' => 'create'
+			),
+			array(
+				'rule' => array('lengthBetween', 1, 31),
+                'message' => 'タイトルは1～31文字で入力して下さい'
+			)
 		),
 		'limit_at' => array(
 			'rule' => 'date',

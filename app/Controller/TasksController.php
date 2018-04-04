@@ -7,6 +7,7 @@ class TasksController extends AppController {
 	public $helpers = array('Format');
 
 	public function index(){
+		$this->set('error',NULL);
         $this->set('all_task', $this->Task->getAllTask());
 	}
 	public function create(){
@@ -19,8 +20,12 @@ class TasksController extends AppController {
 		// if ($this->Task->saveTask($this->request->data['Task']['title'],$this->request->data['Task']['limit_date']) == false) {
 		// 	return $this->render('index');
 		// }
-		$this->Task->saveTask($this->request->data['title'],$this->request->data['limit_date']);
-		$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+		$this->set('log','ハンサっむ');
+		$this->Task->saveTask(htmlspecialchars($this->request->data['title']),$this->request->data['limit_date']);
+		$this->set('error',$this->Task->validationErrors);
+		// $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+        $this->set('all_task', $this->Task->getAllTask());
+		$this->render('index');
 	}
 
 	public function finish(){
@@ -37,12 +42,12 @@ class TasksController extends AppController {
 	}
 
 	public function update(){
-		$this->Task->updateTask($this->request->data['id'],$this->request->data['title'],$this->request->data['limit_date']);
+		$this->Task->updateTask($this->request->data['id'],htmlspecialchars($this->request->data['title']),$this->request->data['limit_date']);
 		$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
 	}
 
 	public function search(){
-        $this->set('search_task', $this->Task->getSearchTask($_GET['keyword']));
+        $this->set('search_task', $this->Task->getSearchTask(@$_GET['keyword']));
         // $this->set('search_task', $this->Task->getSearchTask());
 	}
 

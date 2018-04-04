@@ -11,7 +11,7 @@
 		  	'url' => array('controller' => 'tasks', 'action' => 'search')
 		  )));
 		  ?>
-			<p>ToDo名:<input type="text" name="keyword" value="<?php echo $_GET['keyword'] ?>" placeholder=""></p>
+			<p>ToDo名:<input type="text" name="keyword" value="<?php echo @$_GET['keyword'] ?>" placeholder=""></p>
 		<?php
 		print(
 		  $this->Form->button('ToDoの検索', array('type' => 'submit','class'=>'right_btn btn btn-primary')).
