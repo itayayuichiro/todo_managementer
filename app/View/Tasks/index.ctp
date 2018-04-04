@@ -10,7 +10,7 @@
 		  	'url' => array('controller' => 'tasks', 'action' => 'create')
 		  )));
 		  ?>
-			<p>ToDo名:<input type="text" name="title" required maxlength="31" value="" placeholder="タスクの内容"></p>
+			<p>ToDo名:<input type="text" name="title" required maxlength="31" value="" placeholder=""></p>
 			<span class="hit_message"><?php echo @$error['title'][0] ?></span>
 			<p>期限:<input type="date" name="limit_date"></p>
 			<span class="hit_message"><?php echo @$error['date'][0] ?></span>
