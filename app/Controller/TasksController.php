@@ -40,6 +40,12 @@ class TasksController extends AppController {
 	public function edit(){
 		$this->set('task',$this->Task->getRecord($_GET['id'])['Task']);
 	}
+	
+	public function delete(){
+		$this->set('task',$this->Task->deleteRecord($this->request->data['id']));
+		$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+	}
+	
 
 	public function update(){
 		$this->Task->updateTask($this->request->data['id'],htmlspecialchars($this->request->data['title']),$this->request->data['limit_date']);

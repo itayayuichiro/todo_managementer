@@ -49,8 +49,15 @@ body {
 }
 .finish_btn{
 	float: right;
+	margin-right: 30px;
+}
+.delete_btn{
+	float: right;	
 }
 .hit_message{
 	color: red;
 	margin: 30px;
+}
+.past{
+	background-color: #ffdddd;
 }

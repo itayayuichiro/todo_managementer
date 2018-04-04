@@ -16,9 +16,11 @@ class Task extends AppModel {
 			)
 		),
 		'limit_at' => array(
-			'rule' => 'date',
-	        'message' => '正しい値を入れてください',
-	        'allowEmpty' => true
+			array(
+				'required' => true,
+                'message' => '日付を入力して下さい',
+	            'required' => 'create'
+			),
 		)
 	);
 
@@ -44,6 +46,10 @@ class Task extends AppModel {
 	}
 	public function getRecord($id){
 		return $this->find('first', array('conditions' => array('id' => $id)));
+	}
+
+	public function deleteRecord($id){
+		return $this->delete($id);
 	}
 
 	public function getAllYoutuber(){

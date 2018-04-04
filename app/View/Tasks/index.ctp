@@ -10,9 +10,9 @@
 		  	'url' => array('controller' => 'tasks', 'action' => 'create')
 		  )));
 		  ?>
-			<p>ToDo名:<input type="text" name="title" required maxlength="31" value="" placeholder=""></p>
+			<p>ToDo名:<input type="text" name="title" required value="" placeholder=""></p>
 			<span class="hit_message"><?php echo @$error['title'][0] ?></span>
-			<p>期限:<input type="date" name="limit_date"></p>
+			<p>期限:<input type="date" name="limit_date" required></p>
 			<span class="hit_message"><?php echo @$error['date'][0] ?></span>
 		<?php
 		print(
@@ -42,7 +42,7 @@
 <?php
 	foreach ($all_task as $row) {
 		?>
-	<div class="todo_box">
+	<div class="todo_box <?php echo $this->Format->past_date($row['Task']['limit_at']); ?>">
 		<div class="contents_text">
 			<p><?php echo $row['Task']['title'] ?><br>
 			作成日:<?php  echo $this->Format->format_date($row['Task']['created']); ?><br>
@@ -52,6 +52,10 @@
 				<form action="./tasks/edit" class="edit_btn" method="get" accept-charset="utf-8">
 					<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
 					<input type="submit" name="" value="編集" class="btn btn-success">
+				</form>
+				<form action="./tasks/delete" class="delete_btn" method="post" accept-charset="utf-8">
+					<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
+					<input type="submit" name="" value="×" class="btn btn-warning">
 				</form>
 				<form action="./tasks/finish" class="finish_btn" method="post" accept-charset="utf-8">
 					<input type="hidden" name="id" value="<?php echo $row['Task']['id'] ?>">

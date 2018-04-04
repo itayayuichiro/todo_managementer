@@ -42,11 +42,11 @@
 	if (!empty($_GET['keyword'])) {
 		foreach ($search_task as $row) {
 			?>
-		<div class="todo_box">
+		<div class="todo_box <?php echo $this->Format->past_date($row['Task']['limit_at']); ?>">
 			<div class="contents_text">
 				<p><?php echo $row['Task']['title'] ?><br>
-				作成日:<?php echo $this->Format->format_date($row['Task']['created']);] ?><br>
-				期限:<?php echo $this->Format->format_date($row['Task']['limited_at']); ?>
+				作成日:<?php echo $this->Format->format_date($row['Task']['created']); ?><br>
+				期限:<?php echo $this->Format->format_date($row['Task']['limit_at']); ?>
 				<div class="right_btn">
 					<a href=""></a>
 					<form action="./tasks/edit" class="edit_btn" method="get" accept-charset="utf-8">
