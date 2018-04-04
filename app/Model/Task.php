@@ -7,21 +7,13 @@ class Task extends AppModel {
 		'title' => array(
 			array(
 				'rule' => 'isUnique',
-	            'message' => 'その名前のタスクはすでにあります。',
-	            'required' => 'create'
+	            'message' => 'その名前のタスクはすでにあります。'
 			),
 			array(
 				'rule' => array('lengthBetween', 1, 31),
                 'message' => 'タイトルは1～31文字で入力して下さい'
 			)
 		),
-		'limit_at' => array(
-			array(
-				'required' => true,
-                'message' => '日付を入力して下さい',
-	            'required' => 'create'
-			),
-		)
 	);
 
 

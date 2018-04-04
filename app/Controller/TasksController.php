@@ -11,19 +11,8 @@ class TasksController extends AppController {
         $this->set('all_task', $this->Task->getAllTask());
 	}
 	public function create(){
-		// $this->Task->saveTask($this->request->data);
-		// print_r($this->request->data);
-		// if ($this->Task->saveTask($this->request->data['title'],$this->request->data['limit_date']) == false) {
-	 //        $this->set('error', "失敗");
-		// 	$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
-		// }
-		// if ($this->Task->saveTask($this->request->data['Task']['title'],$this->request->data['Task']['limit_date']) == false) {
-		// 	return $this->render('index');
-		// }
-		$this->set('log','ハンサっむ');
 		$this->Task->saveTask(htmlspecialchars($this->request->data['title']),$this->request->data['limit_date']);
 		$this->set('error',$this->Task->validationErrors);
-		// $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
         $this->set('all_task', $this->Task->getAllTask());
 		$this->render('index');
 	}
