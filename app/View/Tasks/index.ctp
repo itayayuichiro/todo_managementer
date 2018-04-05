@@ -48,16 +48,15 @@
 			作成日:<?php  echo $this->Format->format_date($row['Task']['created']); ?><br>
 			期限:<?php echo $this->Format->format_date($row['Task']['limit_at']); ?>
 			<div class="right_btn">
-				<a href=""></a>
-				<form action="./tasks/edit" class="edit_btn" method="get" accept-charset="utf-8">
+				<form action="/todo_managementer/tasks/edit" class="edit_btn" method="get" accept-charset="utf-8">
 					<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
 					<input type="submit" name="" value="編集" class="btn btn-success">
 				</form>
-				<form action="./tasks/delete" class="delete_btn" method="post" accept-charset="utf-8">
+				<form action="/todo_managementer/tasks/delete" class="delete_btn" method="post" accept-charset="utf-8">
 					<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
 					<input type="submit" name="" value="×" class="btn btn-warning">
 				</form>
-				<form action="./tasks/finish" class="finish_btn" method="post" accept-charset="utf-8">
+				<form action="/todo_managementer/tasks/finish" class="finish_btn" method="post" accept-charset="utf-8">
 					<input type="hidden" name="id" value="<?php echo $row['Task']['id'] ?>">
 				<?php
 				if ($row['Task']['is_finished']==1) {
