@@ -42,39 +42,58 @@
 	if (!empty($_GET['keyword'])) {
 		foreach ($search_task as $row) {
 			?>
-		<div class="todo_box <?php echo $this->Format->past_date($row['Task']['limit_at']); ?>">
-			<div class="contents_text">
-				<p><?php echo $row['Task']['title'] ?><br>
-				作成日:<?php echo $this->Format->format_date($row['Task']['created']); ?><br>
-				期限:<?php echo $this->Format->format_date($row['Task']['limit_at']); ?>
-				<div class="right_btn">
-					<form action="/todo_managementer/tasks/edit" class="edit_btn" method="get" accept-charset="utf-8">
-						<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
-						<input type="submit" name="" value="編集" class="btn btn-success">
-					</form>
-					<form action="/todo_managementer/tasks/delete" class="delete_btn" method="post" accept-charset="utf-8">
-						<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
-						<input type="submit" name="" value="×" class="btn btn-warning">
-					</form>
-					<form action="/todo_managementer/tasks/finish" class="finish_btn" method="post" accept-charset="utf-8">
-						<input type="hidden" name="id" value="<?php echo $row['Task']['id'] ?>">
-					<?php
-					if ($row['Task']['is_finished']==1) {
-					?>
-						<input type="submit" name="" value="完了" class="btn btn-info">
-					<?php
-					}else{
-					?>
-						<input type="submit" name="" value="未完了" class="btn btn-danger">
-					<?php
-					}
-					?>
-					</form>
-				</div>
-				</p>
-			</div>
+			<div class="todo_box <?php echo $this->Format->past_date($row['Task']['limit_at']); ?>">
+				<div class="contents_text">
+					<p><?php echo $row['Task']['title'] ?><br>
+					作成日:<?php  echo $this->Format->format_date($row['Task']['created']); ?><br>
+					期限:<?php echo $this->Format->format_date($row['Task']['limit_at']); ?>
+					<div class="right_btn">
+						<?php
+						print(
+						  $this->Form->create('Task', array(
+						  	'url' => array('controller' => 'tasks', 'action' => 'edit'),
+						  	'class' => 'edit_btn',
+						  	'type' => 'get'
+						  )));
+						  ?>
+							<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
+							<input type="submit" name="" value="編集" class="btn btn-success">
+						<?php
+						print($this->Form->end());
+						print(
+						  $this->Form->create('Task', array(
+						  	'url' => array('controller' => 'tasks', 'action' => 'delete'),
+						  	'class' => 'delete_btn'
+						  )));
+						  ?>
+							<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
+							<input type="submit" name="" value="×" class="btn btn-warning">
+						<?php
+						print($this->Form->end());
 
-		</div>
+						print(
+						  $this->Form->create('Task', array(
+						  	'url' => array('controller' => 'tasks', 'action' => 'finish'),
+						  	'class' => 'finish_btn'
+						  )));
+						  ?>
+							<input type="hidden" name="id" value="<?php echo $row['Task']['id'] ?>">
+						<?php
+						if ($row['Task']['is_finished']==1) {
+						?>
+							<input type="submit" name="" value="完了" class="btn btn-info">
+						<?php
+						}else{
+						?>
+							<input type="submit" name="" value="未完了" class="btn btn-danger">
+						<?php
+						}
+						print($this->Form->end());
+						?>
+					</div>
+					</p>
+				</div>
+			</div>
 		<?php 
 		}
 	}
