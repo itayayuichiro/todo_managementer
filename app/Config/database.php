@@ -75,7 +75,7 @@ class DATABASE_CONFIG {
 		'database' => 'todo',
 		'prefix' => '',
 		'timezone' => 'Asia/Tokyo',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 
 	public $test = array(
