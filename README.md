@@ -34,11 +34,29 @@ Todoの管理ができるWebアプリケーション
 | /tasks/finish | Todoの「完了」「未完了」を切り替える　|
 
 
-
-
 ## 開発環境のセットアップ手順
 
 1. DBを作成
 1. SQLダンプをインポート(/todo_managementer/app/ddl/todo_2018-04-05.sql)
 1. ソースコードをcloneする 
-1. /todo_managementer/app/Config/database.phpを以下のように変更する
+1. /todo_managementer/app/Config/database.phpの69行目以降(host/login/password/database)の値を、以下のように変更する
+
+```
+public $default = array(
+	'datasource' => 'Database/Mysql',
+	'persistent' => false,
+	'host' => '自身のMYSQLホスト名',
+	'login' => 'ユーザー名',
+	'password' => 'パスワード',
+	'database' => 'DB名',
+	'prefix' => '',
+	'timezone' => 'Asia/Tokyo',
+	'encoding' => 'utf8',
+);
+
+
+```
+
+## 動作確認できるURI
+
+http://ity-y.sakura.ne.jp/todo_managementer/
