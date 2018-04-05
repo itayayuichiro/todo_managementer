@@ -1,4 +1,4 @@
-<h1 class="my-4">Todoリスト一覧</h1>
+<h1 class="my-4">Todoリスト検索</h1>
 
 <!-- 新規登録フォーム -->
 <div class="todo_box">

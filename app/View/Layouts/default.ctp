@@ -18,8 +18,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php echo $this->Html->script('popper.min.js'); ?>
 	<?php echo $this->Html->script('bootstrap.min.js'); ?>
 	<title>
-		TODOリスト:
-		<?php echo $this->fetch('title'); ?>
+		TODOリスト
 	</title>
 </head>
 <body>
