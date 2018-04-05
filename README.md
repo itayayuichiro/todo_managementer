@@ -54,8 +54,14 @@ public $default = array(
 	'encoding' => 'utf8',
 );
 
-
 ```
+
+1. cd /todo_managementerでtodo_managementerディレクトリに移動
+1. 以下のようにドキュメントルートを指定して実行
+```
+php -S localhost:8080 -t app/webroot
+```
+
 
 ## 動作確認できるURI
 
