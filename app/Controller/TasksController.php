@@ -33,7 +33,7 @@ class TasksController extends AppController
 
     public function edit()
     {
-        $this->set('task', $this->Task->getRecord($_GET['id'])['Task']);
+        $this->set('task', @$this->Task->getRecord($_GET['id'])['Task']);
     }
 
     public function delete()
