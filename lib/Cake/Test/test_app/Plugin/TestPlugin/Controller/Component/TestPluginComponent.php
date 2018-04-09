@@ -21,8 +21,9 @@
  *
  * @package       Cake.Test.TestApp.Plugin.TestPlugin.Controller.Component
  */
-class TestPluginComponent extends Component {
+class TestPluginComponent extends Component
+{
 
-	public $components = array('TestPlugin.TestPluginOther');
+    public $components = array('TestPlugin.TestPluginOther');
 
 }

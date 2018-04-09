@@ -17,46 +17,52 @@ App::uses("ConsoleOutputStub", "TestSuite/Stub");
 /*
  * ConsoleOutputStub test
  */
-class ConsoleOutputStubTest extends CakeTestCase {
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
+class ConsoleOutputStubTest extends CakeTestCase
+{
 
-		$this->stub = new ConsoleOutputStub();
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
 
-/**
- * Test that stub can be used as an instance of ConsoleOutput
- *
- * @return void
- */
-	public function testCanActAsConsoleOutput() {
-		$this->assertInstanceOf("ConsoleOutput", $this->stub);
-	}
+        $this->stub = new ConsoleOutputStub();
+    }
 
-/**
- * Test write method
- *
- * @return void
- */
-	public function testWrite() {
-		$this->stub->write(array("foo", "bar", "baz"));
-		$this->assertEquals(array("foo", "bar", "baz"), $this->stub->messages());
-	}
+    /**
+     * Test that stub can be used as an instance of ConsoleOutput
+     *
+     * @return void
+     */
+    public function testCanActAsConsoleOutput()
+    {
+        $this->assertInstanceOf("ConsoleOutput", $this->stub);
+    }
 
-/**
- * Test overwrite method
- *
- * @return void
- */
-	public function testOverwrite() {
-		$this->stub->write(array("foo", "bar", "baz"));
-		$this->stub->overwrite("bat");
-		$this->assertEquals(array("foo", "bar", "baz", "", "bat"), $this->stub->messages());
-	}
+    /**
+     * Test write method
+     *
+     * @return void
+     */
+    public function testWrite()
+    {
+        $this->stub->write(array("foo", "bar", "baz"));
+        $this->assertEquals(array("foo", "bar", "baz"), $this->stub->messages());
+    }
+
+    /**
+     * Test overwrite method
+     *
+     * @return void
+     */
+    public function testOverwrite()
+    {
+        $this->stub->write(array("foo", "bar", "baz"));
+        $this->stub->overwrite("bat");
+        $this->assertEquals(array("foo", "bar", "baz", "", "bat"), $this->stub->messages());
+    }
 }

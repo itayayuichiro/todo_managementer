@@ -2,10 +2,12 @@
 
 App::uses('DboSource', 'Model/Datasource');
 
-class DboDummy extends DboSource {
+class DboDummy extends DboSource
+{
 
-	public function connect() {
-		return true;
-	}
+    public function connect()
+    {
+        return true;
+    }
 
 }

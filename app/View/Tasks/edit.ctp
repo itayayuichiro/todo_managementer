@@ -7,7 +7,7 @@
 		<?php
 		print(
 		  $this->Form->create('Task', array(
-		  	'url' => array('controller' => 'tasks', 'action' => 'update')
+			'url' => array('controller' => 'tasks', 'action' => 'update')
 		  )));
 		  ?>
 			<p>ToDo名:<input type="text" name="title" required maxlength="31" value="<?php echo $task['title'] ?>" placeholder="タスクの内容"></p>

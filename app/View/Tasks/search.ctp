@@ -7,8 +7,8 @@
 		<?php
 		print(
 		  $this->Form->create('Task', array(
-		  	'type' => 'get',
-		  	'url' => array('controller' => 'tasks', 'action' => 'search')
+			'type' => 'get',
+			'url' => array('controller' => 'tasks', 'action' => 'search')
 		  )));
 		  ?>
 			<p>ToDo名:<input type="text" name="keyword" value="<?php echo @$_GET['keyword'] ?>" placeholder=""></p>
@@ -44,16 +44,16 @@
 			?>
 			<div class="todo_box <?php echo $this->Format->past_date($row['Task']['limit_at']); ?>">
 				<div class="contents_text">
-					<p><?php echo $row['Task']['title'] ?><br>
+					<p><?php echo htmlspecialchars($row['Task']['title']); ?><br>
 					作成日:<?php  echo $this->Format->format_date($row['Task']['created']); ?><br>
 					期限:<?php echo $this->Format->format_date($row['Task']['limit_at']); ?>
 					<div class="right_btn">
 						<?php
 						print(
 						  $this->Form->create('Task', array(
-						  	'url' => array('controller' => 'tasks', 'action' => 'edit'),
-						  	'class' => 'edit_btn',
-						  	'type' => 'get'
+							'url' => array('controller' => 'tasks', 'action' => 'edit'),
+							'class' => 'edit_btn',
+							'type' => 'get'
 						  )));
 						  ?>
 							<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
@@ -62,8 +62,8 @@
 						print($this->Form->end());
 						print(
 						  $this->Form->create('Task', array(
-						  	'url' => array('controller' => 'tasks', 'action' => 'delete'),
-						  	'class' => 'delete_btn'
+							'url' => array('controller' => 'tasks', 'action' => 'delete'),
+							'class' => 'delete_btn'
 						  )));
 						  ?>
 							<input type="hidden" name="id" value="<?php echo $row['Task']['id']; ?>">
@@ -73,8 +73,8 @@
 
 						print(
 						  $this->Form->create('Task', array(
-						  	'url' => array('controller' => 'tasks', 'action' => 'finish'),
-						  	'class' => 'finish_btn'
+							'url' => array('controller' => 'tasks', 'action' => 'finish'),
+							'class' => 'finish_btn'
 						  )));
 						  ?>
 							<input type="hidden" name="id" value="<?php echo $row['Task']['id'] ?>">

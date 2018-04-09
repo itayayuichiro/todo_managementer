@@ -14,12 +14,14 @@ body {
     }
 }
 
-.bg-dark{
-	background-color:#d2fff1 !important;
+.bg-dark {
+    background-color: #d2fff1 !important;
 }
-.navbar-brand{
-	color: black !important;
+
+.navbar-brand {
+    color: black !important;
 }
+
 /*.if_rame{
 	margin:10px;
 }
@@ -28,36 +30,45 @@ body {
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
-*/.jumbotron{
-	padding:6rem 2rem;
-	margin-top: 10px;
+*/
+.jumbotron {
+    padding: 6rem 2rem;
+    margin-top: 10px;
 }
-.todo_box{
-	border: 1px solid;
-	margin: 30px;
+
+.todo_box {
+    border: 1px solid;
+    margin: 30px;
 }
-.contents_text{
-	margin: 40px;
+
+.contents_text {
+    margin: 40px;
 }
-.right_btn{
-	margin-top: -50px;
-	float: right;
+
+.right_btn {
+    margin-top: -50px;
+    float: right;
 }
-.edit_btn{
-	float: left;
-	margin-right: 30px;
+
+.edit_btn {
+    float: left;
+    margin-right: 30px;
 }
-.finish_btn{
-	float: right;
-	margin-right: 30px;
+
+.finish_btn {
+    float: right;
+    margin-right: 30px;
 }
-.delete_btn{
-	float: right;	
+
+.delete_btn {
+    float: right;
 }
-.hit_message{
-	color: red;
-	margin: 30px;
+
+.hit_message {
+    color: red;
+    margin: 30px;
 }
-.past{
-	background-color: #ffdddd;
+
+.past {
+    background-color: #ffdddd;
 }

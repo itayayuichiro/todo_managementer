@@ -21,8 +21,9 @@
  *
  * @package       Cake.Test.TestApp.Model
  */
-class Post extends AppModel {
+class Post extends AppModel
+{
 
-	public $useTable = 'posts';
+    public $useTable = 'posts';
 
 }
