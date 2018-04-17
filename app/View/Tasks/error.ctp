@@ -2,19 +2,19 @@
 
 <!-- 新規登録フォーム -->
 <div class="todo_box">
-	<div class="contents_text">
+    <div class="contents_text">
         <?php
-                echo "そのTodoは存在しません";
-                echo "<br>";
-                print(
-                    $this->Html->link(
-                        '戻る',
-                        array(
-                            'controller' => 'tasks',
-                            'action' => 'index'
-                        )
-                    )
-                );
+        echo "そのTodoは存在しません";
+        echo "<br>";
+        print(
+        $this->Html->link(
+            '戻る',
+            array(
+                'controller' => 'tasks',
+                'action' => 'index'
+            )
+        )
+        );
         ?>
     </div>
 </div>

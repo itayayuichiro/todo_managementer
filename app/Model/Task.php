@@ -21,7 +21,7 @@ class Task extends AppModel
     {
         if ($this->find('first', array('conditions' => array('id' => $id))) != null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -56,9 +56,10 @@ class Task extends AppModel
     }
 
     public function getRecord($id)
-    {        
+    {
         return $this->find('first', array('conditions' => array('id' => $id)));
     }
+
     public function deleteRecord($id)
     {
         return $this->delete($id);

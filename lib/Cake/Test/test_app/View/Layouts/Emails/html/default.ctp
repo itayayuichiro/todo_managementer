@@ -2,12 +2,12 @@
 
 <html>
 <head>
-	<title><?php echo $this->fetch('title'); ?></title>
+    <title><?php echo $this->fetch('title'); ?></title>
 </head>
 
 <body>
-	<?php echo $this->fetch('content'); ?>
+<?php echo $this->fetch('content'); ?>
 
-	<p>This email was sent using the <a href="https://cakephp.org">CakePHP Framework</a></p>
+<p>This email was sent using the <a href="https://cakephp.org">CakePHP Framework</a></p>
 </body>
 </html>

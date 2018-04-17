@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  * Articles Controller
  *
@@ -8,20 +9,21 @@ App::uses('AppController', 'Controller');
  * @property AuthComponent $Auth
  * @property PaginatorComponent $Paginator
  */
-class ArticlesController extends AppController {
+class ArticlesController extends AppController
+{
 
-/**
- * Helpers
- *
- * @var array
- */
-	public $helpers = array('Js', 'Time');
+    /**
+     * Helpers
+     *
+     * @var array
+     */
+    public $helpers = array('Js', 'Time');
 
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Acl', 'Auth', 'Paginator');
+    /**
+     * Components
+     *
+     * @var array
+     */
+    public $components = array('Acl', 'Auth', 'Paginator');
 
 }
