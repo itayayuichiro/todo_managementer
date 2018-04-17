@@ -18,7 +18,7 @@ class TasksController extends AppController
 
     public function create()
     {
-        $this->Task->saveTask($this->request->data['title'], $this->request->data['limit_date']);
+        $this->Task->saveTask($_POST['title'], $_POST['limit_date']);
         $this->set('error', $this->Task->validationErrors);
         $this->set('all_task', $this->Task->getAllTask());
         $this->render('index');
