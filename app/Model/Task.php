@@ -11,11 +11,20 @@ class Task extends AppModel
                 'message' => 'その名前のタスクはすでにあります。'
             ),
             array(
-                'rule' => array('lengthBetween', 1, 31),
-                'message' => 'タイトルは1～31文字で入力して下さい'
+                'rule' => array('lengthBetween', 1, 30),
+                'message' => 'タイトルは1～30文字で入力して下さい'
             )
         ),
     );
+
+    public function existId($id)
+    {
+        if ($this->find('first', array('conditions' => array('id' => $id))) != null) {
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
     public function getAllTask()
@@ -47,10 +56,9 @@ class Task extends AppModel
     }
 
     public function getRecord($id)
-    {
+    {        
         return $this->find('first', array('conditions' => array('id' => $id)));
     }
-
     public function deleteRecord($id)
     {
         return $this->delete($id);

@@ -12,6 +12,9 @@ class TasksController extends AppController
         $this->set('error', NULL);
         $this->set('all_task', $this->Task->getAllTask());
     }
+    public function error()
+    {
+    }
 
     public function create()
     {
@@ -23,30 +26,48 @@ class TasksController extends AppController
 
     public function finish()
     {
-        if ($this->Task->getRecord($this->request->data['id'])['Task']['is_finished'] == 1) {
-            $this->Task->changeFinished($this->request->data['id'], 0);
-        } else {
-            $this->Task->changeFinished($this->request->data['id'], 1);
+        if ($this->Task->existId($_POST['id']) == true) {
+            if ($this->Task->getRecord($_POST['id'])['Task']['is_finished'] == 1) {
+                $this->Task->changeFinished($_POST['id'], 0);
+            } else {
+                $this->Task->changeFinished($_POST['id'], 1);
+            }
+            $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+        }else{
+            $this->redirect(array('controller' => 'tasks', 'action' => 'error'));
         }
-        $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+
     }
 
     public function edit()
     {
-        $this->set('task', @$this->Task->getRecord($_GET['id'])['Task']);
+        if($this->Task->existId($_GET['id']) == true){
+            $this->set('task', $this->Task->getRecord($_GET['id'])['Task']);
+        }else{
+            $this->set('all_task', $this->Task->getAllTask());
+            $this->set('error_message','そのTodoは削除されています。');
+            $this->render('index');        }
     }
 
     public function delete()
     {
-        $this->set('task', $this->Task->deleteRecord($this->request->data['id']));
-        $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+        if ($this->Task->existId($_POST['id']) == true) {
+            $this->set('task', $this->Task->deleteRecord($_POST['id']));
+            $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+        }else{
+            $this->redirect(array('controller' => 'tasks', 'action' => 'error'));
+        }
     }
 
 
     public function update()
     {
-        $this->Task->updateTask($this->request->data['id'], htmlspecialchars($this->request->data['title']), $this->request->data['limit_date']);
-        $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+        if ($this->Task->existId($_POST['id']) == true) {
+            $this->Task->updateTask($_POST['id'], htmlspecialchars($_POST['title']), $_POST['limit_date']);
+            $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+        }else{
+            $this->redirect(array('controller' => 'tasks', 'action' => 'error'));
+        }
     }
 
     public function search()
