@@ -1,5 +1,11 @@
 <h1 class="my-4">Todoリスト一覧</h1>
-
+<?php
+	if (!empty($error_message)) {
+	?>
+		<span class="hit_message"><?php echo $error_message ?></span>
+	<?php
+	}
+ ?>
 <!-- 新規登録フォーム -->
 <div class="todo_box">
 	<div class="contents_text">
