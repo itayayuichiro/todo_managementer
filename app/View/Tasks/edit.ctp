@@ -27,7 +27,9 @@
             ?>
             <p>ToDo名:<input type="text" name="title" required maxlength="31" value="<?php echo $task['title'] ?>"
                             placeholder="タスクの内容"></p>
+            <span class="hit_message"><?php echo @$error['title'][0] ?></span>
             <p>期限:<input type="date" name="limit_date" value="<?php echo $task['limit_at'] ?>"></p>
+            <span class="hit_message"><?php echo @$error['date'][0] ?></span>
             <input type="hidden" name="id" value="<?php echo $task['id'] ?>">
             <?php
             print(
