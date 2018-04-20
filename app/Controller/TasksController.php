@@ -66,7 +66,14 @@ class TasksController extends AppController
     {
         if ($this->Task->existId($_POST['id']) == true) {
             $this->Task->updateTask($_POST['id'], htmlspecialchars($_POST['title']), $_POST['limit_date']);
-            $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+            if (empty($this->Task->validationErrors)){
+                $this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+            }else{
+                $this->set('error',$this->Task->validationErrors);
+                $this->set('task', $this->Task->getRecord($_POST['id'])['Task']);
+                $this->render('edit');
+            }
+
         } else {
             $this->redirect(array('controller' => 'tasks', 'action' => 'error'));
         }
